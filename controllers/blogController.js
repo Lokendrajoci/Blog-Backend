@@ -3,9 +3,8 @@ const APIFeatures = require("../utils/apiFeatures");
 const qs = require("qs");
 // Get all blogs
 exports.getAllBlogs = async (req, res) => {
-  console.log("Query: ", req.query);
   const queryP = qs.parse(req.query);
-  console.log("Parsed Query: ", queryP);
+
   try {
     // Create a new APIFeatures instance
     const features = new APIFeatures(Blog.find(), queryP).filter();
@@ -126,3 +125,5 @@ exports.deleteBlog = async (req, res) => {
     });
   }
 };
+
+//find one and delete

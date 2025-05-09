@@ -1,21 +1,41 @@
-export default [
+import js from "@eslint/js";
+import globals from "globals";
+import { defineConfig } from "eslint/config";
+
+export default defineConfig([
+  {
+    files: ["**/*.{js,mjs,cjs}"],
+    plugins: { js },
+    extends: ["js/recommended"],
+    rules: {
+      "spaced-comment": "off",
+      "no-console": "warn",
+      "consistent-return": "off",
+      "func-names": "off",
+      "object-shorthand": "off",
+      "no-process-exit": "off",
+      "no-param-reassign": "off",
+      "no-return-await": "off",
+      "no-underscore-dangle": "off",
+      "class-methods-use-this": "off",
+      "prefer-destructuring": ["error", { object: true, array: false }],
+      "no-unused-vars": ["error", { argsIgnorePattern: "req|res|next|val" }],
+    },
+  },
+  {
+    files: ["**/*.js"],
+    languageOptions: { sourceType: "commonjs" },
+  },
+  {
+    files: ["**/*.{js,mjs,cjs}"],
+    languageOptions: { globals: globals.browser },
+  },
   {
     files: ["**/*.js"],
     languageOptions: {
-      ecmaVersion: "latest", // Latest ECMAScript version
-      sourceType: "module", // Use "module" for ES modules, "script" for CommonJS
-    },
-    env: {
-      node: true, // Enable Node.js global variables
-      es2021: true, // Use ES2021 features
-    },
-    rules: {
-      "no-console": "off", // Allow console.log statements
-      semi: ["error", "always"], // Require semicolons
-      quotes: ["error", "single"], // Enforce single quotes
-      eqeqeq: ["error", "always"], // Require strict equality
-      "no-var": "error", // Disallow var
-      "prefer-const": "error", // Suggest using const
+      globals: {
+        ...globals.node,
+      },
     },
   },
-];
+]);
