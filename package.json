@@ -1,0 +1,21 @@
+{
+  "name": "Personal Blogging Platform API",
+  "version": "1.0.0",
+  "description": "This is a RESTful API that would power a personal blog. It allows users to create, read, update, and delete blog posts. The API is built using Node.js and Express.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.14.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.26.0",
+    "eslint": "^9.26.0",
+    "globals": "^16.1.0"
+  }
+}

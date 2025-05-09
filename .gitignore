@@ -1,0 +1,16 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore all log files
+*.log
+
+# Ignore environment variables file
+.env
+
+# Ignore specific configuration files
+config.env
+secret-config.json
+
+# Optional: Ignore build output directory (if any)
+dist/
+build/

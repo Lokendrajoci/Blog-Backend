@@ -1,0 +1,36 @@
+{
+  "articles": [
+    {
+      "title": "Understanding RESTful APIs",
+      "content": "RESTful APIs are the backbone of modern web development...",
+      "author": "John Doe",
+      "tags": ["tech", "api", "web development"],
+      "publishedDate": "2025-05-01",
+      "likes": 150
+    },
+    {
+      "title": "10 Tips for Learning JavaScript",
+      "content": "JavaScript is a versatile programming language...",
+      "author": "Jane Smith",
+      "tags": ["javascript", "programming", "web development"],
+      "publishedDate": "2025-05-03",
+      "likes": 200
+    },
+    {
+      "title": "A Beginner's Guide to Node.js",
+      "content": "Node.js allows you to build server-side applications...",
+      "author": "Alice Johnson",
+      "tags": ["nodejs", "backend", "programming"],
+      "publishedDate": "2025-04-25",
+      "likes": 180
+    },
+    {
+      "title": "CSS Flexbox: The Basics",
+      "content": "Flexbox is a CSS layout module that makes it easier...",
+      "author": "Bob Martin",
+      "tags": ["css", "frontend", "design"],
+      "publishedDate": "2025-05-05",
+      "likes": 120
+    }
+  ]
+}
