@@ -6,31 +6,30 @@ class APIFeatures {
 
   filter() {
     try {
-      // 1. Remove reserved query params
+      // 1. Create a shallow copy of query params
       const queryObj = { ...this.queryString };
+
+      // 2. Remove reserved fields
       const excludedFields = ["page", "sort", "limit", "fields"];
-      excludedFields.forEach((el) => delete queryObj[el]);
+      excludedFields.forEach((field) => delete queryObj[field]);
 
-      // 2. Advanced filtering
+      // 3. Advanced filtering with MongoDB operators
       let queryStr = JSON.stringify(queryObj);
-
       queryStr = queryStr.replace(
         /\b(gte|gt|lte|lt)\b/g,
         (match) => `$${match}`
       );
 
-      // Debug: Log the query string
-      console.log("Transformed query string:", queryStr);
+      // 4. Parse the query string back to an object
+      const parsedQuery = JSON.parse(queryStr);
 
-      this.query = this.query.find(JSON.parse(queryStr));
+      // 5. Apply the filter to the query
+      this.query = this.query.find(parsedQuery);
 
-      // Debug: Log the Mongoose query
-      console.log("Query after filtering:", this.query);
-
-      return this;
+      return this; // Enable method chaining
     } catch (error) {
-      console.error("Error in filter():", error.message);
-      throw new Error("Invalid query parameters.");
+      console.error("Error in filter method:", error);
+      throw new Error(`Failed to apply filters: ${error.message}`);
     }
   }
 
